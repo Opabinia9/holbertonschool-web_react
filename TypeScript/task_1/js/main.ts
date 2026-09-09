@@ -29,3 +29,11 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 console.log(director1);
+
+function printTeacher(firstname: string, lastname: string): string {
+  return `${firstname[0]}. ${lastname}`
+}
+
+interface printTeacherFunction {
+  (firstname: string, lastname: string): string;
+}
