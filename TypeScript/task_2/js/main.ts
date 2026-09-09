@@ -41,4 +41,18 @@ function createEmployee(salary: number | string): Teacher | Director {
       return new Director
     }
 }
+function isDirector(employee: any): employee is Director {
+  return typeof employee === "object" &&
+    employee !== null &&
+    "getCoffeeBreak" in employee &&
+    "workFromHome" in employee &&
+    "workDirectorTasks" in employee
+}
 
+function executeWork(employee: Teacher | Director) {
+    if (isDirector(employee)) {
+      return employee.workDirectorTasks()
+    } else {
+      return employee.workTeacherTasks()
+    }
+}
